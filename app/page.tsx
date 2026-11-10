@@ -8,7 +8,7 @@ import { projects, site } from "./content";
 export default function Home() {
   return (
     <>
-      <SiteHeader onHero />
+      <SiteHeader />
       <main>
         <Hero />
         <section
@@ -35,7 +35,7 @@ export default function Home() {
           </ul>
           {site.github && (
             <p className="mx-auto mt-12 max-w-248 text-center text-lg text-muted lg:mt-20">
-              If you want to see more of my portfolio, you can visit: {"  "}
+              If you want to see more of my portfolio, please visit: {"  "}
               <a
                 href={site.github}
                 target="_blank"

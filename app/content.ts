@@ -3,7 +3,7 @@
 export const site = {
   name: "Bimo Dwien Prabowo",
   year: 2026,
-  role: "Lorem ipsum",
+  role: "Full Stack Developer",
   intro:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   about:
@@ -24,7 +24,11 @@ export const site = {
   },
 };
 
-export type Social = { kind: "instagram" | "linkedin" | "email"; label: string; href: string };
+export type Social = {
+  kind: "instagram" | "linkedin" | "email";
+  label: string;
+  href: string;
+};
 
 // Empty href = not provided yet; the link is hidden instead of pointing nowhere.
 export const socials: Social[] = [

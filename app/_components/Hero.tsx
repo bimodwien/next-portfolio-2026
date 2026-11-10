@@ -5,17 +5,17 @@ const button =
   "inline-flex min-h-11 items-center rounded-lg px-5 text-lg font-semibold motion-safe:transition-colors";
 export const primaryButton = `${button} bg-accent hover:bg-[#f0b41c] active:bg-[#e2a50f]`;
 
-// Below 1024px: a plain yellow block under the yellow header, photo centred on its bottom edge.
+// Below 1024px: a yellow circle like the About page, but with the photo in colour.
 // 1024px and up: the Figma blob.
 function HeroPhoto() {
   return (
     // translate-y lifts the blob (and the photo) to line up with the text; its top stays off-screen,
     // so the nav keeps its yellow backdrop. translate-x nudges the blob right; keep the photo's
     // left at 35% minus that amount so the photo itself stays put.
-    <div className="hero-blob bg-accent pt-2 lg:absolute lg:right-0 lg:top-0 lg:aspect-720/629 lg:w-[50vw] lg:max-w-280 lg:translate-x-[6%] lg:translate-y-[-8%] lg:pt-0">
+    <div className="hero-blob relative mx-auto mt-4 aspect-square w-[72%] max-w-80 overflow-hidden rounded-full bg-accent lg:absolute lg:mx-0 lg:mt-0 lg:overflow-visible lg:rounded-none lg:right-0 lg:top-0 lg:aspect-720/629 lg:w-[50vw] lg:max-w-280 lg:translate-x-[6%] lg:translate-y-[0%] lg:pt-0">
       <PhotoCrop
-        sizes="(min-width: 1024px) 25vw, min(64vw, 288px)"
-        className="mx-auto w-[64%] max-w-72 lg:absolute lg:bottom-0 lg:left-[27%] lg:w-[50%] lg:max-w-none"
+        sizes="(min-width: 1024px) 29vw, min(54vw, 240px)"
+        className="absolute bottom-0 left-1/2 w-[75%] -translate-x-1/2 lg:left-[23%] lg:w-[58%] lg:translate-x-0"
       />
     </div>
   );

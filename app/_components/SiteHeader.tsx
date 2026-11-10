@@ -13,18 +13,9 @@ const links = [
 
 // 1024px and up: overlays the hero so the nav sits on the yellow blob, as in the mockup.
 // Below that: in the page flow, so the open menu pushes the hero down instead of covering it.
-// onHero paints it yellow there, joining the yellow photo block underneath.
-export function SiteHeader({
-  current,
-  onHero = false,
-}: {
-  current?: (typeof links)[number]["key"];
-  onHero?: boolean;
-}) {
+export function SiteHeader({ current }: { current?: (typeof links)[number]["key"] }) {
   return (
-    <header
-      className={`relative z-10 lg:absolute lg:inset-x-0 lg:top-0 lg:bg-transparent ${onHero ? "bg-accent" : ""}`}
-    >
+    <header className="relative z-10 lg:absolute lg:inset-x-0 lg:top-0">
       <div className="container-x flex flex-wrap items-center justify-between gap-x-4 py-2 lg:py-5">
         <Link
           href="/"
