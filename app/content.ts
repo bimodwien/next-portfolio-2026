@@ -4,6 +4,9 @@ export const site = {
   name: "Bimo Dwien Prabowo",
   year: 2026,
   role: "Full Stack Developer",
+  url: "https://bimodwien.id",
+  description:
+    "Bimo Dwien Prabowo is a full stack developer who builds and runs web apps with Next.js, NestJS, Express and Go.",
   intro:
     "I'm a full stack developer who cares about the unglamorous parts: data that stays correct, auth that holds up, and deploys that don't break things. I ship apps and stay around to keep them running.",
   about:

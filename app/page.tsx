@@ -3,13 +3,32 @@ import { ProjectCard } from "./_components/ProjectCard";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
 import { FaGithub } from "react-icons/fa6";
-import { projects, site } from "./content";
+import { activeSocials, projects, site } from "./content";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: site.role,
+  image: `${site.url}${site.photo.src}`,
+  sameAs: [
+    ...activeSocials.filter((s) => s.kind === "linkedin").map((s) => s.href),
+    site.github,
+  ],
+};
 
 export default function Home() {
   return (
     <>
       <SiteHeader />
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Hero />
         <section
           id="projects"

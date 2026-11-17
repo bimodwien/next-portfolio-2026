@@ -7,7 +7,8 @@ import { site } from "../content";
 
 export const metadata: Metadata = {
   title: `About | ${site.name}`,
-  description: `About ${site.name}.`,
+  description: `About ${site.name}, a full stack developer who builds and runs his own web apps.`,
+  alternates: { canonical: "/about" },
 };
 
 function Portrait() {
