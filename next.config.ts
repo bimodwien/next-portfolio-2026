@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Docker copies .next/standalone into the image (see Dockerfile).
+  output: "standalone",
   experimental: {
     agentFeedback: true,
   },

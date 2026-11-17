@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      # Match the npm that wrote package-lock.json, same as the Dockerfile.
+      - run: npm install -g npm@12.2.2
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+  deploy:
+    needs: [check]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, portfolio]
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    defaults:
+      run:
+        shell: bash
+        working-directory: /home/bimodwien/deploy/portfolio
+    steps:
+      - name: Update code to the tested commit
+        run: |
+          git fetch --prune origin
+          git reset --hard "$GITHUB_SHA"
+
+      - name: Build and restart container
+        run: |
+          docker compose up -d --build
+          docker image prune -f
+
+      - name: Smoke test
+        run: |
+          for i in $(seq 1 30); do
+            web=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/ || true)
+            echo "try $i: web=$web"
+            if [ "$web" = 200 ]; then exit 0; fi
+            sleep 2
+          done
+          exit 1

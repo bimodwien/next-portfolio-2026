@@ -1,0 +1,13 @@
+# Production stack for bimodwien.id. No secrets, so no .env is needed.
+name: portfolio
+
+services:
+  web:
+    build: .
+    image: portfolio-web
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      # Set explicitly: Docker would otherwise fill HOSTNAME with the machine name.
+      HOSTNAME: 127.0.0.1
+      PORT: 3000
