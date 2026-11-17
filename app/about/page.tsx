@@ -14,7 +14,10 @@ function Portrait() {
   return (
     <div className="relative mx-auto aspect-square w-[80%] max-w-108 overflow-hidden rounded-full bg-accent lg:order-last lg:mr-0">
       <Image
-        {...site.aboutPhoto}
+        src={site.aboutPhoto.src}
+        alt={site.aboutPhoto.alt}
+        width={site.aboutPhoto.width}
+        height={site.aboutPhoto.height}
         loading="eager"
         sizes="(min-width: 1024px) 432px, 80vw"
         className="absolute bottom-0 left-0 h-auto w-full grayscale"
