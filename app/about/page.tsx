@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { primaryButton } from "../_components/Hero";
-import { PhotoCrop } from "../_components/PhotoCrop";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
 import { site } from "../content";
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
   description: `About ${site.name}.`,
 };
 
-// Mockup: grayscale portrait on a solid yellow circle, text on the left.
 function Portrait() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-131 overflow-hidden rounded-full bg-accent lg:order-last lg:mr-0">
-      <PhotoCrop
-        sizes="(min-width: 1024px) 325px, 62vw"
-        className="absolute bottom-0 left-1/2 w-[62%] -translate-x-1/2 grayscale"
+    <div className="relative mx-auto aspect-square w-[80%] max-w-108 overflow-hidden rounded-full bg-accent lg:order-last lg:mr-0">
+      <Image
+        {...site.aboutPhoto}
+        loading="eager"
+        sizes="(min-width: 1024px) 432px, 80vw"
+        className="absolute bottom-0 left-0 h-auto w-full grayscale"
       />
     </div>
   );
@@ -29,10 +30,10 @@ export default function About() {
       <main className="container-x grid items-center gap-10 pt-6 lg:min-h-svh lg:grid-cols-2 lg:gap-16 lg:py-28">
         <Portrait />
         <div>
-          <h1 className="font-display text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.2]">
+          <h1 className="font-display text-[clamp(2.25rem,3.6vw,3.25rem)] font-bold leading-[1.2]">
             About me
           </h1>
-          <p className="mt-6 max-w-152 text-lg leading-[1.8] text-muted lg:mt-10 lg:text-2xl lg:leading-[1.7]">
+          <p className="mt-6 max-w-152 text-base leading-[1.7] text-muted lg:mt-10 lg:text-lg">
             {site.about}
           </p>
           {site.resume && (

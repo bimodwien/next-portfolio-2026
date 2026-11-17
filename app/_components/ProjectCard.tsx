@@ -10,7 +10,6 @@ function ProjectImage({
 }) {
   const box = `relative order-first aspect-[4/3] md:aspect-auto ${side}`;
   if (!image) {
-    // Honest placeholder until a real screenshot exists.
     return (
       <div
         className={`${box} grid place-items-center bg-placeholder text-muted`}
@@ -32,7 +31,6 @@ function ProjectImage({
   );
 }
 
-// Cards alternate image side on wide screens, matching the mockup; on phones the image always leads.
 export function ProjectCard({
   project,
   flip,
@@ -47,10 +45,10 @@ export function ProjectCard({
         side={flip ? "md:order-first" : "md:order-last"}
       />
       <div className="flex flex-col justify-center p-6 sm:p-10 lg:px-12.5">
-        <h3 className="font-display text-3xl font-bold leading-tight lg:text-[2.5rem]">
+        <h3 className="font-display text-2xl font-bold leading-tight lg:text-3xl">
           {project.title}
         </h3>
-        <p className="mt-4 max-w-92 text-lg leading-normal text-muted lg:mt-6">
+        <p className="mt-4 max-w-92 text-base leading-[1.7] text-muted lg:text-lg lg:mt-6">
           {project.description}
         </p>
         {project.href && (

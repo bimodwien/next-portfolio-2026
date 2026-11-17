@@ -1,12 +1,11 @@
 import type { IconType } from "react-icons";
-import { FaEnvelope, FaLinkedin, FaSquareInstagram } from "react-icons/fa6";
+import { FaEnvelope, FaLinkedin, FaSquareWhatsapp } from "react-icons/fa6";
 import type { Social } from "../content";
 
 type Kind = Social["kind"];
 
-// Solid Font Awesome glyphs, closest to the filled icons in the mockup.
 const icons: Record<Kind, IconType> = {
-  instagram: FaSquareInstagram,
+  whatsapp: FaSquareWhatsapp,
   linkedin: FaLinkedin,
   email: FaEnvelope,
 };

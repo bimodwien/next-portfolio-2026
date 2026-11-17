@@ -4,10 +4,8 @@
   --color-accent: #fdc435;
   --color-page: #f9faff;
   --color-card: #ffffff;
-  --color-ink: #25282b; /* text colour from the Figma file */
-  /* Mockup grey #828282 is 3.69:1 on the page; this is the nearest grey that passes 4.5:1. */
+  --color-ink: #25282b;
   --color-muted: #6b6b6b;
-  /* Mockup label yellow is 1.54:1 on the page; darker amber of the same hue passes 4.5:1. */
   --color-accent-text: #8a6300;
   --color-placeholder: #eef0f8;
 
@@ -35,8 +33,6 @@ body {
   }
 }
 
-/* Page gutter: 120px at the 1440px Figma frame, shrinking with the viewport.
-   No max-width, so content tracks the screen edges like the blob does. */
 @utility container-x {
   padding-inline: 1.25rem;
   @media (width >= 40rem) {
@@ -47,8 +43,6 @@ body {
   }
 }
 
-/* Figma masks the hero photo with this blob path; the same SVG does it here.
-   Below 1024px the hero is a plain yellow block instead, so the mask is desktop-only. */
 @media (width >= 64rem) {
   .hero-blob {
     mask: url("/hero-blob.svg") center / 100% 100% no-repeat;

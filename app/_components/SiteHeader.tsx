@@ -3,16 +3,14 @@ import { site } from "../content";
 import { MobileMenu } from "./MobileMenu";
 
 const navLink =
-  "inline-flex min-h-12 items-center px-1 text-lg underline-offset-8 decoration-2 hover:underline aria-[current=page]:underline active:opacity-70 lg:text-[1.375rem]";
+  "inline-flex min-h-12 items-center px-1 text-lg underline-offset-8 decoration-2 hover:underline aria-[current=page]:underline active:opacity-70 lg:text-xl";
 
 const links = [
   { key: "about", label: "About", href: "/about" },
   { key: "projects", label: "Projects", href: "/#projects" },
-  { key: "contact", label: "Contact", href: "#contact" }, // every page ends with the contact footer
+  { key: "contact", label: "Contact", href: "#contact" },
 ] as const;
 
-// 1024px and up: overlays the hero so the nav sits on the yellow blob, as in the mockup.
-// Below that: in the page flow, so the open menu pushes the hero down instead of covering it.
 export function SiteHeader({ current }: { current?: (typeof links)[number]["key"] }) {
   return (
     <header className="relative z-10 lg:absolute lg:inset-x-0 lg:top-0">

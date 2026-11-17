@@ -18,7 +18,7 @@ export default function Home() {
         >
           <h2
             id="projects-title"
-            className="text-center font-display text-4xl font-bold lg:text-5xl"
+            className="text-center font-display text-3xl font-bold lg:text-4xl"
           >
             Projects
           </h2>
@@ -34,14 +34,13 @@ export default function Home() {
             ))}
           </ul>
           {site.github && (
-            <p className="mx-auto mt-12 max-w-248 text-center text-lg text-muted lg:mt-20">
+            <p className="mx-auto mt-12 max-w-248 text-center text-base text-muted lg:text-lg lg:mt-20">
               If you want to see more of my portfolio, please visit: {"  "}
               <a
                 href={site.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                // Phones: the word on its own line (bigger tap area). md and up: the logo inline.
                 className="mx-auto block w-fit py-2.5 font-semibold text-ink underline-offset-4 decoration-2 hover:underline active:opacity-70 md:inline md:py-0"
               >
                 <span className="md:hidden">GitHub</span>
